@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+
+        <link rel="stylesheet" href="../output.css" />
+
+        <title>Frontend Mentor | Notifications page</title>
+    </head>
+    <body class="p-4 font-jakarta">
+        <section class="flex flex-col gap-6">
+            <div class="flex justify-between">
+                <div class="flex gap-2">
+                    <h1 class="font-extrabold text-xl">Notifications</h1>
+                    <p
+                        class="flex items-center justify-center w-7 h-6 rounded-md bg-black text-white font-bold px-2 self-center text-sm"
+                    >
+                        3
+                    </p>
+                </div>
+                <button class="text-sm" onclick="readAllNotifications()">
+                    Mark all as read
+                </button>
+            </div>
+            <ul class="flex flex-col gap-2">
+                <li
+                    id="notification-reaction-mark-webber-1"
+                    class="flex gap-3 bg-slate-100 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-mark-webber.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Mark Webber
+                            </a>
+                            reacted to your recent post
+                            <a href="#" class="text-slate-600 font-extrabold"
+                                >My first tournament today!</a
+                            >
+                        </p>
+                        <p class="text-slate-400">1m ago</p>
+                    </div>
+                </li>
+                <li
+                    id="notification-followed-angel-gray-2"
+                    class="flex gap-3 bg-slate-100 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-angela-gray.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Angela Gray
+                            </a>
+                            followed you
+                        </p>
+                        <p class="text-slate-400">5m ago</p>
+                    </div>
+                </li>
+                <li
+                    id="notification-followed-jacob-thompson-3"
+                    class="flex gap-3 bg-slate-100 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-jacob-thompson.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Jacob Thompson
+                            </a>
+                            has joined your group
+                            <a href="#" class="text-slate-600 font-extrabold"
+                                >Chess Club</a
+                            >
+                        </p>
+                        <p class="text-slate-400">1 day ago</p>
+                    </div>
+                </li>
+                <li
+                    id="notification-followed-rizky-hasanuddin-4"
+                    class="flex gap-3 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-rizky-hasanuddin.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Rizky Hasanuddin
+                            </a>
+                            sent you a private message
+                        </p>
+                        <p class="text-slate-400">5 days ago</p>
+                        <div class="border rounded-md p-3 text-slate-700 mt-1">
+                            Hello, thanks for setting up the Chess Club. I've
+                            been a member for a few weeks now and I'm already
+                            having lots of fun and improving my game.
+                        </div>
+                    </div>
+                </li>
+                <li
+                    id="notification-followed-kimberly-smith-5"
+                    class="flex gap-3 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-kimberly-smith.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Kimberly Smith
+                            </a>
+                            commented on your picture
+                        </p>
+                        <p class="text-slate-400">1 week ago</p>
+                    </div>
+                    <img
+                        src="../assets//images/image-chess.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                </li>
+                <li
+                    id="notification-followed-nathan-peterson-6"
+                    class="flex gap-3 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-nathan-peterson.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Nathan Peterson
+                            </a>
+                            reacted to your recent post
+                            <a href="#" class="text-slate-600 font-extrabold"
+                                >5 end-game strategies to increase your win
+                                rate</a
+                            >
+                        </p>
+                        <p class="text-slate-400">2 weeks ago</p>
+                    </div>
+                </li>
+                <li
+                    id="notification-followed-anna-kim-7"
+                    class="flex gap-3 p-3 rounded-lg cursor-pointer"
+                >
+                    <img
+                        src="../assets/images/avatar-anna-kim.webp"
+                        class="max-w-10 max-h-10"
+                    />
+                    <div class="flex flex-col gap-1 text-sm font-normal">
+                        <p
+                            id="notification-text-01"
+                            class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
+                        >
+                            <a href="#" class="text-blue-950 font-extrabold"
+                                >Anna Kim </a
+                            >left the group
+                            <a href="#" class="text-slate-600 font-extrabold">
+                                Chess Club</a
+                            >
+                        </p>
+                        <p class="text-slate-400">2 weeks ago</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <div class="attribution mt-12 mb-4 text-xs sm:text-sm text-center">
+            Challenge by&nbsp;
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                class="underline"
+                >Frontend Mentor</a
+            >. Coded by&nbsp;
+            <a href="https://github.com/ianwilk20" class="underline"
+                >Ian Wilkinson</a
+            >.
+        </div>
+
+        <script>
+            document.querySelectorAll('li').forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    toggleNotification(event.currentTarget)
+                })
+            })
+
+            function toggleNotification(element) {
+                let notifText = element.querySelector(
+                    "[id^='notification-text-']"
+                )
+                if (
+                    element.classList &&
+                    element.classList.contains('bg-slate-100')
+                ) {
+                    toggleOffNotification(element, notifText)
+                } else {
+                    toggleOnNotification(element, notifText)
+                }
+                // also toggle the red dot
+            }
+
+            function readAllNotifications() {
+                document.querySelectorAll('li').forEach(function (item) {
+                    toggleOffNotification(item)
+                })
+            }
+
+            function toggleOnNotification(element, notifText) {
+                element.classList.add('bg-slate-100')
+                notifText.classList.remove('after:content-[none]')
+            }
+
+            function toggleOffNotification(element, notifText) {
+                element.classList.remove('bg-slate-100')
+                notifText.classList.add('after:content-[none]')
+            }
+        </script>
+    </body>
+</html>
