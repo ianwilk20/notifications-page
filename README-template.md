@@ -63,6 +63,38 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+I learned about event bubbling and delegation. 
+
+Originally I created the following event listener so that whenever an event was propogated to the li or came from the li, it would fire:
+
+```js
+document.querySelectorAll('li').forEach(function (item) {
+    item.addEventListener('click', function (event) {
+        toggleNotification(event.currentTarget)
+    })
+})
+```
+
+Instead of adding an event listener on every single list item, we can use event delegation. Since I learned that events bubble up, we can add an event listener on a parent element. In this case, I added an event listener to the ```<ul></ul>``` and each time some child of it was clicked it would propogate up to the ```<ul>``` and be caught by event listener. Specifically, I also wanted that anywhere the user clicked in the list item, the <p> tags, <img> tags, whatever, that it would toggle the notification. The way I did this was iterate up from the element that was clicked on until it found a parent that was of tag type <li>. Here is the final code:
+
+```js
+const notificationList =
+    document.getElementById('notification-list')
+
+notificationList.addEventListener('click', function (e) {
+    let targetElem = event.target
+    while (targetElem && targetElem.tagName !== 'LI') {
+        targetElem = targetElem.parentElement
+    }
+    if (targetElem) {
+        console.log('Found target LI', targetElem)
+        toggleNotification(targetElem)
+    }
+})
+```
+
+While this is a valid approach
+
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:

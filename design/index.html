@@ -22,16 +22,20 @@
                 <div class="flex gap-2">
                     <h1 class="font-extrabold text-xl">Notifications</h1>
                     <p
+                        id="notification-live-count"
                         class="flex items-center justify-center w-7 h-6 rounded-md bg-black text-white font-bold px-2 self-center text-sm"
                     >
                         3
                     </p>
                 </div>
-                <button class="text-sm" onclick="readAllNotifications()">
+                <button
+                    class="text-sm font-medium text-slate-600 hover:text-blue-950"
+                    onclick="readAllNotifications()"
+                >
                     Mark all as read
                 </button>
             </div>
-            <ul class="flex flex-col gap-2">
+            <ul id="notification-list" class="flex flex-col gap-2">
                 <li
                     id="notification-reaction-mark-webber-1"
                     class="flex gap-3 bg-slate-100 p-3 rounded-lg cursor-pointer"
@@ -45,11 +49,15 @@
                             id="notification-text-01"
                             class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Mark Webber
                             </a>
                             reacted to your recent post
-                            <a href="#" class="text-slate-600 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-slate-600 font-extrabold hover:text-blue-700"
                                 >My first tournament today!</a
                             >
                         </p>
@@ -69,7 +77,9 @@
                             id="notification-text-01"
                             class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Angela Gray
                             </a>
                             followed you
@@ -90,11 +100,15 @@
                             id="notification-text-01"
                             class="after:content-[''] after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Jacob Thompson
                             </a>
                             has joined your group
-                            <a href="#" class="text-slate-600 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-slate-600 font-extrabold hover:text-blue-700"
                                 >Chess Club</a
                             >
                         </p>
@@ -114,13 +128,17 @@
                             id="notification-text-01"
                             class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Rizky Hasanuddin
                             </a>
                             sent you a private message
                         </p>
                         <p class="text-slate-400">5 days ago</p>
-                        <div class="border rounded-md p-3 text-slate-700 mt-1">
+                        <div
+                            class="border rounded-md p-3 text-slate-700 mt-1 hover:bg-blue-100"
+                        >
                             Hello, thanks for setting up the Chess Club. I've
                             been a member for a few weeks now and I'm already
                             having lots of fun and improving my game.
@@ -140,7 +158,9 @@
                             id="notification-text-01"
                             class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Kimberly Smith
                             </a>
                             commented on your picture
@@ -149,7 +169,7 @@
                     </div>
                     <img
                         src="../assets//images/image-chess.webp"
-                        class="max-w-10 max-h-10"
+                        class="max-w-10 max-h-10 hover:border-2 hover:border-slate-200 hover:rounded-lg"
                     />
                 </li>
                 <li
@@ -165,11 +185,15 @@
                             id="notification-text-01"
                             class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Nathan Peterson
                             </a>
                             reacted to your recent post
-                            <a href="#" class="text-slate-600 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-slate-600 font-extrabold hover:text-blue-700"
                                 >5 end-game strategies to increase your win
                                 rate</a
                             >
@@ -190,10 +214,15 @@
                             id="notification-text-01"
                             class="after:content-none after:bg-red-600 after:w-2 after:h-2 after:rounded-full after:inline-block after:ml-1 after:mb-[1px]"
                         >
-                            <a href="#" class="text-blue-950 font-extrabold"
+                            <a
+                                href="#"
+                                class="text-blue-950 font-extrabold hover:text-blue-700"
                                 >Anna Kim </a
                             >left the group
-                            <a href="#" class="text-slate-600 font-extrabold">
+                            <a
+                                href="#"
+                                class="text-slate-600 font-extrabold hover:text-blue-700"
+                            >
                                 Chess Club</a
                             >
                         </p>
@@ -208,20 +237,48 @@
             <a
                 href="https://www.frontendmentor.io?ref=challenge"
                 target="_blank"
-                class="underline"
+                class="underline text-blue-950 font-medium"
                 >Frontend Mentor</a
             >. Coded by&nbsp;
-            <a href="https://github.com/ianwilk20" class="underline"
+            <a
+                href="https://github.com/ianwilk20"
+                class="underline text-blue-950 font-medium"
                 >Ian Wilkinson</a
             >.
         </div>
 
         <script>
-            document.querySelectorAll('li').forEach(function (item) {
-                item.addEventListener('click', function (event) {
-                    toggleNotification(event.currentTarget)
-                })
+            document.addEventListener('DOMContentLoaded', (event) => {
+                localStorage.setItem('notificationCount', '3')
             })
+
+            const notificationLiveCount = document.getElementById(
+                'notification-live-count'
+            )
+
+            const notificationList =
+                document.getElementById('notification-list')
+
+            notificationList.addEventListener('click', function (e) {
+                let targetElem = event.target
+                while (targetElem && targetElem.tagName !== 'LI') {
+                    targetElem = targetElem.parentElement
+                }
+                if (targetElem) {
+                    toggleNotification(targetElem)
+                }
+            })
+
+            // document.querySelectorAll('li').forEach(function (item) {
+            //     item.addEventListener('click', function (event) {
+            //         toggleNotification(event.currentTarget)
+            //     })
+            // })
+
+            // I expect there to be an issue with the toggling of notifications for those that are already read
+            // Likely a styling issue because no bg is set by default and after is being removed
+
+            //Notification count should decrease/increase
 
             function toggleNotification(element) {
                 let notifText = element.querySelector(
@@ -232,16 +289,49 @@
                     element.classList.contains('bg-slate-100')
                 ) {
                     toggleOffNotification(element, notifText)
+                    decrementNotificationCount()
                 } else {
                     toggleOnNotification(element, notifText)
+                    incrementNotificationCount()
                 }
                 // also toggle the red dot
             }
 
+            function decrementNotificationCount() {
+                currentCount = localStorage.getItem('notificationCount')
+                if (
+                    currentCount !== undefined &&
+                    Number.isInteger(parseInt(currentCount, 10))
+                ) {
+                    let newCount = parseInt(currentCount, 10) - 1
+                    notificationLiveCount.innerText = newCount
+                    localStorage.setItem('notificationCount', newCount)
+                }
+            }
+
+            function incrementNotificationCount() {
+                currentCount = localStorage.getItem('notificationCount')
+                if (
+                    currentCount !== undefined &&
+                    Number.isInteger(parseInt(currentCount, 10))
+                ) {
+                    let newCount = parseInt(currentCount, 10) + 1
+                    notificationLiveCount.innerText = newCount
+                    localStorage.setItem('notificationCount', newCount)
+                }
+            }
+
             function readAllNotifications() {
-                document.querySelectorAll('li').forEach(function (item) {
-                    toggleOffNotification(item)
-                })
+                notificationList
+                    .querySelectorAll('li')
+                    .forEach(function (item) {
+                        let notifText = item.querySelector(
+                            "[id^='notification-text-']"
+                        )
+                        toggleOffNotification(item, notifText)
+                    })
+                localStorage.setItem('notificationCount', 0)
+                notificationLiveCount.innerText = 0
             }
 
             function toggleOnNotification(element, notifText) {
