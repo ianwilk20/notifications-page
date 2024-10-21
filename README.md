@@ -39,8 +39,8 @@ Mobile:
 
 ### Links
 
-- [Solution URL](https://github.com/ianwilk20/temp)
-- [Live Site URL](https://temp.netlify.app/design/)
+- [Solution URL](https://github.com/ianwilk20/notifications-page)
+- [Live Site URL](https://notification-page-ianwilk20.netlify.app/design/)
 
 ## My process
 
