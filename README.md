@@ -1,96 +1,97 @@
-# Frontend Mentor - Notifications page
+# Frontend Mentor - Notifications page solution
 
-![Design preview for the Notifications page coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Notifications page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this notifications page and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to: 
+Users should be able to:
 
 - Distinguish between "unread" and "read" notifications
 - Select "Mark all as read" to toggle the visual state of the unread notifications and set the number of unread messages to zero
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+Desktop:
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+![Desktop initial state](/design/solution-screenshots/desktop-initial-state.png)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Mobile: 
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+![Mobile initial state](/design/solution-screenshots/mobile-initial-state.png)
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+### Links
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- [Solution URL](https://github.com/ianwilk20/temp)
+- [Live Site URL](https://temp.netlify.app/design/)
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+## My process
 
-## Building your project
+### Built with
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- Semantic HTML5 markup
+- Flexbox
+- Mobile-first workflow
+- [Tailwind](https://tailwindcss.com/docs) - For styles
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### What I learned
 
-## Deploying your project
+I learned about event bubbling and delegation: 
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- Originally I created the following event listener so that whenever an event was propogated to the ```<li>``` or came from the ```<li>```, it would fire:
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+  ```js
+  document.querySelectorAll('li').forEach(function (item) {
+      item.addEventListener('click', function (event) {
+          toggleNotification(event.currentTarget)
+      })
+  })
+  ```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+- Instead of adding an event listener on every single list item, we can use event delegation. Since I learned that events bubble up, we can add an event listener on a parent element. In this case, I added an event listener to the ```<ul></ul>``` and each time some child of it was clicked it would propogate up to the ```<ul>``` and be caught by event listener. Specifically, I also wanted that anywhere the user clicked in the list item, the ```<p>``` tags, ```<img>``` tags, whatever child element, that it would toggle the notification. The way I did this was iterate up from the element that was clicked on until it found a parent that was of tag type ```<li>```. Here is the final code:
 
-## Create a custom `README.md`
+  ```js
+  const notificationList =
+      document.getElementById('notification-list')
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+  notificationList.addEventListener('click', function (e) {
+      let targetElem = event.target
+      while (targetElem && targetElem.tagName !== 'LI') {
+          targetElem = targetElem.parentElement
+      }
+      if (targetElem) {
+          toggleNotification(targetElem)
+      }
+  })
+  ```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+In my reading, I found that only the most trivial of scripts are put into HTML; more complex scripts need their own files. So, I put the JS code into a separate file, index.js, and attatched the script to the HTML using the script tag's src attribute. Additionally, I learned that the benefit of putting your JS in a seperate file is that the browser will download the JS and cache it. As a result, other pages of your site can use the same script living in the cache rather than downloading it. In essence, the script is only downloaded once.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### Continued development
 
-## Submitting your solution
+As I mentioned in my previous challenge, I will continue to learn Tailwind as I'm finding it handy. I'd also be interested in adding TypeScript into my next challenge because I've heard it's important to learn and type safety can help minimize bugs in applications.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+### Useful resources
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [Script tags and loading js](https://javascript.info/hello-world) - This is an amazing website that I've been using to learn JavaScript.
 
-## Sharing your solution
+## Author
 
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- GitHub - [ianwilk20](https://github.com/ianwilk20)

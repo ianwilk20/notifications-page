@@ -16,8 +16,10 @@
 
         <title>Frontend Mentor | Notifications page</title>
     </head>
-    <body class="p-4 font-jakarta">
-        <section class="flex flex-col gap-6">
+    <body class="flex flex-col min-h-[100vh] font-jakarta bg-slate-100">
+        <section
+            class="flex flex-col p-6 gap-6 bg-white my-auto mx-auto max-w-[45rem] sm:rounded-md"
+        >
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <h1 class="font-extrabold text-xl">Notifications</h1>
@@ -247,102 +249,6 @@
             >.
         </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                localStorage.setItem('notificationCount', '3')
-            })
-
-            const notificationLiveCount = document.getElementById(
-                'notification-live-count'
-            )
-
-            const notificationList =
-                document.getElementById('notification-list')
-
-            notificationList.addEventListener('click', function (e) {
-                let targetElem = event.target
-                while (targetElem && targetElem.tagName !== 'LI') {
-                    targetElem = targetElem.parentElement
-                }
-                if (targetElem) {
-                    toggleNotification(targetElem)
-                }
-            })
-
-            // document.querySelectorAll('li').forEach(function (item) {
-            //     item.addEventListener('click', function (event) {
-            //         toggleNotification(event.currentTarget)
-            //     })
-            // })
-
-            // I expect there to be an issue with the toggling of notifications for those that are already read
-            // Likely a styling issue because no bg is set by default and after is being removed
-
-            //Notification count should decrease/increase
-
-            function toggleNotification(element) {
-                let notifText = element.querySelector(
-                    "[id^='notification-text-']"
-                )
-                if (
-                    element.classList &&
-                    element.classList.contains('bg-slate-100')
-                ) {
-                    toggleOffNotification(element, notifText)
-                    decrementNotificationCount()
-                } else {
-                    toggleOnNotification(element, notifText)
-                    incrementNotificationCount()
-                }
-                // also toggle the red dot
-            }
-
-            function decrementNotificationCount() {
-                currentCount = localStorage.getItem('notificationCount')
-                if (
-                    currentCount !== undefined &&
-                    Number.isInteger(parseInt(currentCount, 10))
-                ) {
-                    let newCount = parseInt(currentCount, 10) - 1
-                    notificationLiveCount.innerText = newCount
-                    localStorage.setItem('notificationCount', newCount)
-                }
-            }
-
-            function incrementNotificationCount() {
-                currentCount = localStorage.getItem('notificationCount')
-                if (
-                    currentCount !== undefined &&
-                    Number.isInteger(parseInt(currentCount, 10))
-                ) {
-                    let newCount = parseInt(currentCount, 10) + 1
-                    notificationLiveCount.innerText = newCount
-                    localStorage.setItem('notificationCount', newCount)
-                }
-            }
-
-            function readAllNotifications() {
-                notificationList
-                    .querySelectorAll('li')
-                    .forEach(function (item) {
-                        let notifText = item.querySelector(
-                            "[id^='notification-text-']"
-                        )
-                        toggleOffNotification(item, notifText)
-                    })
-                localStorage.setItem('notificationCount', 0)
-                notificationLiveCount.innerText = 0
-            }
-
-            function toggleOnNotification(element, notifText) {
-                element.classList.add('bg-slate-100')
-                notifText.classList.remove('after:content-[none]')
-            }
-
-            function toggleOffNotification(element, notifText) {
-                element.classList.remove('bg-slate-100')
-                notifText.classList.add('after:content-[none]')
-            }
-        </script>
+        <script src="../assets/static/js/index.js"></script>
     </body>
 </html>
